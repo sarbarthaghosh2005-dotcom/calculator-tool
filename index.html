@@ -1,16 +1,20 @@
+</div>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online calculators - BMI Calculator, Age Calculator, EMI Calculator, and GST Calculator. Easy-to-use tools for all your calculation needs.">
-    <meta name="keywords" content="BMI calculator, age calculator, EMI calculator, GST calculator, online calculator, free calculator tools">
+    <meta name="description"
+        content="Free online calculators - BMI Calculator, Age Calculator, EMI Calculator, and GST Calculator. Easy-to-use tools for all your calculation needs.">
+    <meta name="keywords"
+        content="BMI calculator, age calculator, EMI calculator, GST calculator, online calculator, free calculator tools">
     <meta name="author" content="Calculator Tools">
     <meta property="og:title" content="Multi-Purpose Calculator Tools">
     <meta property="og:description" content="Access free BMI, Age, EMI, and GST calculators online">
     <meta property="og:type" content="website">
     <title>Free Online Calculators - BMI, Age, EMI, GST Calculator Tools</title>
-    
+
     <style>
         * {
             margin: 0;
@@ -33,7 +37,7 @@
         /* Navigation */
         nav {
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -155,7 +159,8 @@
             animation: fadeInUp 1s 0.4s both;
         }
 
-        .btn-primary, .btn-secondary {
+        .btn-primary,
+        .btn-secondary {
             padding: 15px 40px;
             border-radius: 50px;
             font-size: 1.1em;
@@ -173,7 +178,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary {
@@ -192,6 +197,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -239,7 +245,7 @@
 
         .tool-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border-color: #667eea;
         }
 
@@ -368,7 +374,9 @@
             font-size: 0.95em;
         }
 
-        input, textarea, select {
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 12px 15px;
             border: 2px solid #e0e0e0;
@@ -378,7 +386,9 @@
             font-family: inherit;
         }
 
-        input:focus, textarea:focus, select:focus {
+        input:focus,
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -402,7 +412,7 @@
             background: white;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin: 20px 0;
         }
 
@@ -459,6 +469,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -492,7 +503,7 @@
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .emi-item:last-child {
@@ -529,7 +540,7 @@
         }
 
         .footer-section a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -541,8 +552,8 @@
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Responsive */
@@ -559,7 +570,7 @@
                 background: white;
                 width: 100%;
                 padding: 20px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 transition: left 0.3s;
                 gap: 0;
             }
@@ -596,6 +607,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -640,49 +652,45 @@
 
                 <!-- Header Ad -->
                 <div class="ad-space">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                         data-ad-slot="XXXXXXXXXX"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                        data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
                     <div>Advertisement Space</div>
                 </div>
 
                 <div class="tools-grid">
-                    <div class="tool-card" onclick="showCalculator('bmi')">
+
+                    <a href="/tool-calculator.html" class="tool-card">
                         <div class="tool-icon">⚖️</div>
                         <h3>BMI Calculator</h3>
                         <p>Calculate your Body Mass Index and get health insights based on WHO standards.</p>
-                    </div>
-                    <div class="tool-card" onclick="showCalculator('age')">
+                    </a>
+
+                    <a href="/tool-calculator.html" class="tool-card">
                         <div class="tool-icon">🎂</div>
                         <h3>Age Calculator</h3>
                         <p>Find your exact age in years, months, and days with precision.</p>
-                    </div>
-                    <div class="tool-card" onclick="showCalculator('emi')">
+                    </a>
+
+                    <a href="/tool-calculator.html" class="tool-card">
                         <div class="tool-icon">💰</div>
                         <h3>EMI Calculator</h3>
                         <p>Calculate loan EMIs with detailed breakdown of principal and interest.</p>
-                    </div>
-                    <div class="tool-card" onclick="showCalculator('gst')">
+                    </a>
+
+                    <a href="/tool-calculator.html?tool=gst" class="tool-card">
                         <div class="tool-icon">📊</div>
                         <h3>GST Calculator</h3>
                         <p>Calculate GST amounts with CGST and SGST breakdown for Indian taxes.</p>
+                    </a>
+
+
+                    <!-- Middle Ad -->
+                    <div class="ad-space">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                            data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <div>Advertisement Space</div>
                     </div>
                 </div>
-
-                <!-- Middle Ad -->
-                <div class="ad-space">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                         data-ad-slot="XXXXXXXXXX"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <div>Advertisement Space</div>
-                </div>
-            </div>
         </section>
 
         <!-- Features Section -->
@@ -720,12 +728,8 @@
         <!-- Footer Ad -->
         <div class="container">
             <div class="ad-space">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                     data-ad-slot="XXXXXXXXXX"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                    data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <div>Advertisement Space</div>
             </div>
         </div>
@@ -842,12 +846,15 @@
         <div class="container">
             <h1>Privacy Policy</h1>
             <p><strong>Last Updated: January 7, 2026</strong></p>
-            
+
             <h2>Introduction</h2>
-            <p>Welcome to CalcTools. We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your information when you use our online calculator tools.</p>
+            <p>Welcome to CalcTools. We respect your privacy and are committed to protecting your personal information.
+                This Privacy Policy explains how we collect, use, and safeguard your information when you use our online
+                calculator tools.</p>
 
             <h2>Information We Collect</h2>
-            <p>Our calculators perform all calculations locally in your browser. We do not collect, store, or transmit any calculation data you enter into our tools. However, we may collect:</p>
+            <p>Our calculators perform all calculations locally in your browser. We do not collect, store, or transmit
+                any calculation data you enter into our tools. However, we may collect:</p>
             <ul>
                 <li>Browser type and version</li>
                 <li>Device information</li>
@@ -866,7 +873,8 @@
             </ul>
 
             <h2>Cookies and Tracking</h2>
-            <p>We use cookies and similar tracking technologies to enhance your browsing experience. These may include:</p>
+            <p>We use cookies and similar tracking technologies to enhance your browsing experience. These may include:
+            </p>
             <ul>
                 <li>Essential cookies for website functionality</li>
                 <li>Analytics cookies (Google Analytics)</li>
@@ -875,10 +883,13 @@
             <p>You can control cookie preferences through your browser settings.</p>
 
             <h2>Third-Party Services</h2>
-            <p>We use Google AdSense for advertising. Google may use cookies to serve ads based on your prior visits to our website. You can opt out of personalized advertising by visiting Google's Ads Settings.</p>
+            <p>We use Google AdSense for advertising. Google may use cookies to serve ads based on your prior visits to
+                our website. You can opt out of personalized advertising by visiting Google's Ads Settings.</p>
 
             <h2>Data Security</h2>
-            <p>All calculations are performed locally in your browser. We do not store or transmit your calculation data to our servers. We implement appropriate security measures to protect the limited information we collect.</p>
+            <p>All calculations are performed locally in your browser. We do not store or transmit your calculation data
+                to our servers. We implement appropriate security measures to protect the limited information we
+                collect.</p>
 
             <h2>Your Rights</h2>
             <p>You have the right to:</p>
@@ -890,7 +901,8 @@
             </ul>
 
             <h2>Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page with an updated date.</p>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new
+                Privacy Policy on this page with an updated date.</p>
 
             <h2>Contact Us</h2>
             <p>If you have questions about this Privacy Policy, please contact us through our Contact Us page.</p>
@@ -901,12 +913,16 @@
     <div id="about" class="content-page">
         <div class="container">
             <h1>About Us</h1>
-            
+
             <h2>Welcome to CalcTools</h2>
-            <p>CalcTools is your trusted destination for free, accurate, and easy-to-use online calculator tools. We are dedicated to providing powerful calculation solutions that help individuals make informed decisions in their daily lives.</p>
+            <p>CalcTools is your trusted destination for free, accurate, and easy-to-use online calculator tools. We are
+                dedicated to providing powerful calculation solutions that help individuals make informed decisions in
+                their daily lives.</p>
 
             <h2>Our Mission</h2>
-            <p>Our mission is to simplify complex calculations and make them accessible to everyone, everywhere. Whether you're tracking your health with our BMI calculator, planning your finances with our EMI calculator, or managing business expenses with our GST calculator, we're here to help.</p>
+            <p>Our mission is to simplify complex calculations and make them accessible to everyone, everywhere. Whether
+                you're tracking your health with our BMI calculator, planning your finances with our EMI calculator, or
+                managing business expenses with our GST calculator, we're here to help.</p>
 
             <h2>What We Offer</h2>
             <p>We provide a comprehensive suite of calculator tools including:</p>
@@ -928,10 +944,12 @@
             </ul>
 
             <h2>Our Commitment</h2>
-            <p>We are committed to maintaining the highest standards of service and continuously improving our tools based on user feedback. Your trust and satisfaction are our top priorities.</p>
+            <p>We are committed to maintaining the highest standards of service and continuously improving our tools
+                based on user feedback. Your trust and satisfaction are our top priorities.</p>
 
             <h2>Get in Touch</h2>
-            <p>Have questions or suggestions? We'd love to hear from you! Visit our Contact Us page to reach out to our team.</p>
+            <p>Have questions or suggestions? We'd love to hear from you! Visit our Contact Us page to reach out to our
+                team.</p>
         </div>
     </div>
 
@@ -939,7 +957,8 @@
     <div id="contact" class="content-page">
         <div class="container">
             <h1>Contact Us</h1>
-            <p>We'd love to hear from you! Whether you have questions, feedback, or need assistance with our calculator tools, feel free to reach out to us.</p>
+            <p>We'd love to hear from you! Whether you have questions, feedback, or need assistance with our calculator
+                tools, feel free to reach out to us.</p>
 
             <div class="contact-form">
                 <div class="form-group">
@@ -963,12 +982,14 @@
 
             <h2>Other Ways to Reach Us</h2>
             <p>Prefer email? You can also reach us directly at: <strong>support@calctools.com</strong></p>
-            
+
             <h2>Response Time</h2>
-            <p>We typically respond to all inquiries within 24-48 hours during business days. Thank you for your patience!</p>
+            <p>We typically respond to all inquiries within 24-48 hours during business days. Thank you for your
+                patience!</p>
 
             <h2>Feedback & Suggestions</h2>
-            <p>Your feedback helps us improve! If you have ideas for new calculators or features you'd like to see, please don't hesitate to share them with us.</p>
+            <p>Your feedback helps us improve! If you have ideas for new calculators or features you'd like to see,
+                please don't hesitate to share them with us.</p>
         </div>
     </div>
 
@@ -979,13 +1000,17 @@
             <p><strong>Last Updated: January 7, 2026</strong></p>
 
             <h2>General Information</h2>
-            <p>The information and tools provided on CalcTools are for general informational and educational purposes only. While we strive to ensure accuracy, we make no representations or warranties of any kind regarding the completeness, accuracy, reliability, or suitability of the information and calculations provided.</p>
+            <p>The information and tools provided on CalcTools are for general informational and educational purposes
+                only. While we strive to ensure accuracy, we make no representations or warranties of any kind regarding
+                the completeness, accuracy, reliability, or suitability of the information and calculations provided.
+            </p>
 
             <h2>Calculator Accuracy</h2>
             <p>Our calculators use standard mathematical formulas and algorithms. However:</p>
             <ul>
                 <li>Results are approximate and should be used as estimates only</li>
-                <li>BMI calculations are based on general WHO standards and may not account for individual variations</li>
+                <li>BMI calculations are based on general WHO standards and may not account for individual variations
+                </li>
                 <li>EMI calculations are simplified and actual loan terms may vary by lender</li>
                 <li>GST calculations follow Indian tax structure but users should verify with current regulations</li>
                 <li>Age calculations are based on standard calendar computations</li>
@@ -994,8 +1019,10 @@
             <h2>Not Professional Advice</h2>
             <p>The tools and information on this website do not constitute professional advice. Specifically:</p>
             <ul>
-                <li><strong>Medical Advice:</strong> BMI calculations are not a substitute for professional medical advice, diagnosis, or treatment</li>
-                <li><strong>Financial Advice:</strong> EMI and other financial calculators are not professional financial advice</li>
+                <li><strong>Medical Advice:</strong> BMI calculations are not a substitute for professional medical
+                    advice, diagnosis, or treatment</li>
+                <li><strong>Financial Advice:</strong> EMI and other financial calculators are not professional
+                    financial advice</li>
                 <li><strong>Tax Advice:</strong> GST calculations are estimates and not official tax advice</li>
             </ul>
             <p>Always consult with qualified professionals for health, financial, legal, or tax matters.</p>
@@ -1019,13 +1046,16 @@
             </ul>
 
             <h2>External Links</h2>
-            <p>Our website may contain links to external websites. We are not responsible for the content, accuracy, or practices of these external sites.</p>
+            <p>Our website may contain links to external websites. We are not responsible for the content, accuracy, or
+                practices of these external sites.</p>
 
             <h2>Changes and Updates</h2>
-            <p>We reserve the right to modify, update, or discontinue any calculator or feature at any time without notice. Formulas and calculations may be updated to reflect current standards.</p>
+            <p>We reserve the right to modify, update, or discontinue any calculator or feature at any time without
+                notice. Formulas and calculations may be updated to reflect current standards.</p>
 
             <h2>Use at Your Own Risk</h2>
-            <p>By using CalcTools, you acknowledge that you understand and agree to this disclaimer. The use of our calculators and website is entirely at your own risk.</p>
+            <p>By using CalcTools, you acknowledge that you understand and agree to this disclaimer. The use of our
+                calculators and website is entirely at your own risk.</p>
 
             <h2>Contact</h2>
             <p>If you have questions about this disclaimer, please contact us through our Contact Us page.</p>
@@ -1087,7 +1117,7 @@
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const page = link.getAttribute('data-page');
-                
+
                 // Hide all pages
                 document.querySelectorAll('.page, .content-page, .calculator-page').forEach(p => {
                     p.classList.remove('active');
@@ -1113,7 +1143,7 @@
         });
 
         // Show/Hide custom GST rate input
-        document.getElementById('gstRate').addEventListener('change', function() {
+        document.getElementById('gstRate').addEventListener('change', function () {
             const customGroup = document.getElementById('customRateGroup');
             customGroup.style.display = this.value === 'custom' ? 'block' : 'none';
         });
@@ -1231,9 +1261,9 @@
             }
 
             const monthlyRate = annualRate / (12 * 100);
-            const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenure)) / 
-                        (Math.pow(1 + monthlyRate, tenure) - 1);
-            
+            const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenure)) /
+                (Math.pow(1 + monthlyRate, tenure) - 1);
+
             const totalAmount = emi * tenure;
             const totalInterest = totalAmount - principal;
 
@@ -1315,11 +1345,11 @@
                             <strong>${gstRate}%</strong>
                         </div>
                         <div class="emi-item">
-                            <span>CGST (${(gstRate/2).toFixed(2)}%):</span>
+                            <span>CGST (${(gstRate / 2).toFixed(2)}%):</span>
                             <strong>₹${cgst.toFixed(2)}</strong>
                         </div>
                         <div class="emi-item">
-                            <span>SGST (${(gstRate/2).toFixed(2)}%):</span>
+                            <span>SGST (${(gstRate / 2).toFixed(2)}%):</span>
                             <strong>₹${sgst.toFixed(2)}</strong>
                         </div>
                         <div class="emi-item">
@@ -1348,7 +1378,7 @@
             }
 
             alert('Thank you for your message! We will get back to you within 24-48 hours.');
-            
+
             // Clear form
             document.getElementById('contactName').value = '';
             document.getElementById('contactEmail').value = '';
@@ -1357,4 +1387,5 @@
         }
     </script>
 </body>
+
 </html>
