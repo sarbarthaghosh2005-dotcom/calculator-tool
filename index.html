@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online calculators - BMI Calculator, Age Calculator, EMI Calculator, and GST Calculator. Easy-to-use tools for all your calculation needs.">
+    <meta name="keywords" content="BMI calculator, age calculator, EMI calculator, GST calculator, online calculator, free calculator tools">
+    <meta name="author" content="Calculator Tools">
+    <meta property="og:title" content="Multi-Purpose Calculator Tools">
+    <meta property="og:description" content="Access free BMI, Age, EMI, and GST calculators online">
+    <meta property="og:type" content="website">
+    <title>Free Online Calculators - BMI, Age, EMI, GST Calculator Tools</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-menu a.active {
+            color: #667eea;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hyperlink Styles */
+        a {
+            cursor: pointer;
+        }
+
+        .content-page a:not(.nav-link) {
+            color: #667eea;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .content-page a:not(.nav-link):hover {
+            color: #764ba2;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #667eea;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s 0.4s both;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tools Grid */
+        .tools-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tool-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .tool-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .tool-card h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tool-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Ad Spaces */
+        .ad-space {
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Content Pages */
+        .content-page {
+            display: none;
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .content-page.active {
+            display: block;
+        }
+
+        .content-page h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content-page h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-page p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .content-page ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .content-page li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 40px 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Calculator Pages */
+        .calculator-page {
+            display: none;
+        }
+
+        .calculator-page.active {
+            display: block;
+        }
+
+        .calculator-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .calc-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .calc-header h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .calc-header p {
+            color: #666;
+        }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-title {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .result-info {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .emi-breakdown {
+            margin-top: 20px;
+        }
+
+        .emi-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .emi-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                transition: left 0.3s;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                padding: 15px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .section-header h2 {
+                font-size: 2em;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🧮 CalcTools</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="privacy">Privacy Policy</a></li>
+                <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
+                <li><a href="#" class="nav-link" data-page="disclaimer">Disclaimer</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Free Online Calculator Tools</h1>
+                <p>Powerful, easy-to-use calculators for everyday needs - completely free!</p>
+                <div class="cta-buttons">
+                    <a href="#tools" class="btn-primary">Explore Tools</a>
+                    <a href="#" class="btn-secondary nav-link" data-page="about">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="tools-section" id="tools">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Calculator Tools</h2>
+                    <p>Choose from our collection of professional calculators</p>
+                </div>
+
+                <!-- Header Ad -->
+                <div class="ad-space">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <div>Advertisement Space</div>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="showCalculator('bmi')">
+                        <div class="tool-icon">⚖️</div>
+                        <h3>BMI Calculator</h3>
+                        <p>Calculate your Body Mass Index and get health insights based on WHO standards.</p>
+                    </div>
+                    <div class="tool-card" onclick="showCalculator('age')">
+                        <div class="tool-icon">🎂</div>
+                        <h3>Age Calculator</h3>
+                        <p>Find your exact age in years, months, and days with precision.</p>
+                    </div>
+                    <div class="tool-card" onclick="showCalculator('emi')">
+                        <div class="tool-icon">💰</div>
+                        <h3>EMI Calculator</h3>
+                        <p>Calculate loan EMIs with detailed breakdown of principal and interest.</p>
+                    </div>
+                    <div class="tool-card" onclick="showCalculator('gst')">
+                        <div class="tool-icon">📊</div>
+                        <h3>GST Calculator</h3>
+                        <p>Calculate GST amounts with CGST and SGST breakdown for Indian taxes.</p>
+                    </div>
+                </div>
+
+                <!-- Middle Ad -->
+                <div class="ad-space">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <div>Advertisement Space</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 style="color: white;">Why Choose Our Calculators?</h2>
+                    <p style="color: rgba(255,255,255,0.9);">Built with precision and designed for simplicity</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Get instant results with our optimized calculation engine</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Works perfectly on all devices - phones, tablets, and desktops</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>100% Private</h3>
+                        <p>All calculations happen in your browser. We don't store any data</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Accurate Results</h3>
+                        <p>Precision-tested algorithms for reliable calculations every time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Ad -->
+        <div class="container">
+            <div class="ad-space">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <div>Advertisement Space</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculator Pages -->
+    <div id="bmi" class="calculator-page">
+        <div class="container" style="padding: 40px 20px;">
+            <div class="calculator-container">
+                <div class="calc-header">
+                    <h2>BMI Calculator</h2>
+                    <p>Calculate your Body Mass Index to assess your health status</p>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" placeholder="Enter your height" step="0.1">
+                </div>
+                <button class="btn-calculate" onclick="calculateBMI()">Calculate BMI</button>
+                <div id="bmiResult" class="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="age" class="calculator-page">
+        <div class="container" style="padding: 40px 20px;">
+            <div class="calculator-container">
+                <div class="calc-header">
+                    <h2>Age Calculator</h2>
+                    <p>Calculate your exact age in years, months, and days</p>
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">Date of Birth</label>
+                    <input type="date" id="birthdate">
+                </div>
+                <div class="form-group">
+                    <label for="targetdate">Calculate Age On</label>
+                    <input type="date" id="targetdate">
+                </div>
+                <button class="btn-calculate" onclick="calculateAge()">Calculate Age</button>
+                <div id="ageResult" class="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="emi" class="calculator-page">
+        <div class="container" style="padding: 40px 20px;">
+            <div class="calculator-container">
+                <div class="calc-header">
+                    <h2>EMI Calculator</h2>
+                    <p>Calculate your monthly loan installments</p>
+                </div>
+                <div class="form-group">
+                    <label for="loanAmount">Loan Amount (₹)</label>
+                    <input type="number" id="loanAmount" placeholder="Enter loan amount">
+                </div>
+                <div class="form-group">
+                    <label for="interestRate">Interest Rate (% per annum)</label>
+                    <input type="number" id="interestRate" placeholder="Enter interest rate" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="loanTenure">Loan Tenure (months)</label>
+                    <input type="number" id="loanTenure" placeholder="Enter tenure in months">
+                </div>
+                <button class="btn-calculate" onclick="calculateEMI()">Calculate EMI</button>
+                <div id="emiResult" class="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gst" class="calculator-page">
+        <div class="container" style="padding: 40px 20px;">
+            <div class="calculator-container">
+                <div class="calc-header">
+                    <h2>GST Calculator</h2>
+                    <p>Calculate GST amount and total price with tax</p>
+                </div>
+                <div class="form-group">
+                    <label for="gstType">Calculation Type</label>
+                    <select id="gstType">
+                        <option value="exclusive">Add GST (Price Exclusive of GST)</option>
+                        <option value="inclusive">Remove GST (Price Inclusive of GST)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="Enter amount" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="gstRate">GST Rate (%)</label>
+                    <select id="gstRate">
+                        <option value="5">5%</option>
+                        <option value="12">12%</option>
+                        <option value="18" selected>18%</option>
+                        <option value="28">28%</option>
+                        <option value="custom">Custom Rate</option>
+                    </select>
+                </div>
+                <div class="form-group" id="customRateGroup" style="display:none;">
+                    <label for="customRate">Custom GST Rate (%)</label>
+                    <input type="number" id="customRate" placeholder="Enter custom rate" step="0.01">
+                </div>
+                <button class="btn-calculate" onclick="calculateGST()">Calculate GST</button>
+                <div id="gstResult" class="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <div id="privacy" class="content-page">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p><strong>Last Updated: January 7, 2026</strong></p>
+            
+            <h2>Introduction</h2>
+            <p>Welcome to CalcTools. We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your information when you use our online calculator tools.</p>
+
+            <h2>Information We Collect</h2>
+            <p>Our calculators perform all calculations locally in your browser. We do not collect, store, or transmit any calculation data you enter into our tools. However, we may collect:</p>
+            <ul>
+                <li>Browser type and version</li>
+                <li>Device information</li>
+                <li>IP address (for analytics purposes)</li>
+                <li>Pages visited and time spent on site</li>
+                <li>Referral sources</li>
+            </ul>
+
+            <h2>How We Use Your Information</h2>
+            <p>We use the collected information to:</p>
+            <ul>
+                <li>Improve our website functionality and user experience</li>
+                <li>Analyze website traffic and usage patterns</li>
+                <li>Display relevant advertisements through Google AdSense</li>
+                <li>Protect against fraudulent or unauthorized access</li>
+            </ul>
+
+            <h2>Cookies and Tracking</h2>
+            <p>We use cookies and similar tracking technologies to enhance your browsing experience. These may include:</p>
+            <ul>
+                <li>Essential cookies for website functionality</li>
+                <li>Analytics cookies (Google Analytics)</li>
+                <li>Advertising cookies (Google AdSense)</li>
+            </ul>
+            <p>You can control cookie preferences through your browser settings.</p>
+
+            <h2>Third-Party Services</h2>
+            <p>We use Google AdSense for advertising. Google may use cookies to serve ads based on your prior visits to our website. You can opt out of personalized advertising by visiting Google's Ads Settings.</p>
+
+            <h2>Data Security</h2>
+            <p>All calculations are performed locally in your browser. We do not store or transmit your calculation data to our servers. We implement appropriate security measures to protect the limited information we collect.</p>
+
+            <h2>Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access your personal information</li>
+                <li>Request deletion of your data</li>
+                <li>Opt out of data collection</li>
+                <li>Disable cookies in your browser</li>
+            </ul>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page with an updated date.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, please contact us through our Contact Us page.</p>
+        </div>
+    </div>
+
+    <!-- About Us Page -->
+    <div id="about" class="content-page">
+        <div class="container">
+            <h1>About Us</h1>
+            
+            <h2>Welcome to CalcTools</h2>
+            <p>CalcTools is your trusted destination for free, accurate, and easy-to-use online calculator tools. We are dedicated to providing powerful calculation solutions that help individuals make informed decisions in their daily lives.</p>
+
+            <h2>Our Mission</h2>
+            <p>Our mission is to simplify complex calculations and make them accessible to everyone, everywhere. Whether you're tracking your health with our BMI calculator, planning your finances with our EMI calculator, or managing business expenses with our GST calculator, we're here to help.</p>
+
+            <h2>What We Offer</h2>
+            <p>We provide a comprehensive suite of calculator tools including:</p>
+            <ul>
+                <li><strong>BMI Calculator:</strong> Monitor your health and body mass index</li>
+                <li><strong>Age Calculator:</strong> Calculate precise age in years, months, and days</li>
+                <li><strong>EMI Calculator:</strong> Plan your loans with accurate monthly installment calculations</li>
+                <li><strong>GST Calculator:</strong> Simplify tax calculations for your business</li>
+            </ul>
+
+            <h2>Why Choose Us?</h2>
+            <p>We stand out because we prioritize:</p>
+            <ul>
+                <li><strong>Accuracy:</strong> Our algorithms are tested and verified for precision</li>
+                <li><strong>Privacy:</strong> All calculations happen in your browser - we don't store your data</li>
+                <li><strong>Simplicity:</strong> Clean, intuitive interfaces that anyone can use</li>
+                <li><strong>Accessibility:</strong> Free tools available 24/7 on any device</li>
+                <li><strong>Speed:</strong> Instant results without any delays</li>
+            </ul>
+
+            <h2>Our Commitment</h2>
+            <p>We are committed to maintaining the highest standards of service and continuously improving our tools based on user feedback. Your trust and satisfaction are our top priorities.</p>
+
+            <h2>Get in Touch</h2>
+            <p>Have questions or suggestions? We'd love to hear from you! Visit our Contact Us page to reach out to our team.</p>
+        </div>
+    </div>
+
+    <!-- Contact Us Page -->
+    <div id="contact" class="content-page">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Whether you have questions, feedback, or need assistance with our calculator tools, feel free to reach out to us.</p>
+
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="contactName">Your Name *</label>
+                    <input type="text" id="contactName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email Address *</label>
+                    <input type="email" id="contactEmail" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">Subject *</label>
+                    <input type="text" id="contactSubject" placeholder="What is this regarding?" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Message *</label>
+                    <textarea id="contactMessage" placeholder="Tell us more about your inquiry..." required></textarea>
+                </div>
+                <button class="btn-calculate" onclick="submitContact()">Send Message</button>
+            </div>
+
+            <h2>Other Ways to Reach Us</h2>
+            <p>Prefer email? You can also reach us directly at: <strong>support@calctools.com</strong></p>
+            
+            <h2>Response Time</h2>
+            <p>We typically respond to all inquiries within 24-48 hours during business days. Thank you for your patience!</p>
+
+            <h2>Feedback & Suggestions</h2>
+            <p>Your feedback helps us improve! If you have ideas for new calculators or features you'd like to see, please don't hesitate to share them with us.</p>
+        </div>
+    </div>
+
+    <!-- Disclaimer Page -->
+    <div id="disclaimer" class="content-page">
+        <div class="container">
+            <h1>Disclaimer</h1>
+            <p><strong>Last Updated: January 7, 2026</strong></p>
+
+            <h2>General Information</h2>
+            <p>The information and tools provided on CalcTools are for general informational and educational purposes only. While we strive to ensure accuracy, we make no representations or warranties of any kind regarding the completeness, accuracy, reliability, or suitability of the information and calculations provided.</p>
+
+            <h2>Calculator Accuracy</h2>
+            <p>Our calculators use standard mathematical formulas and algorithms. However:</p>
+            <ul>
+                <li>Results are approximate and should be used as estimates only</li>
+                <li>BMI calculations are based on general WHO standards and may not account for individual variations</li>
+                <li>EMI calculations are simplified and actual loan terms may vary by lender</li>
+                <li>GST calculations follow Indian tax structure but users should verify with current regulations</li>
+                <li>Age calculations are based on standard calendar computations</li>
+            </ul>
+
+            <h2>Not Professional Advice</h2>
+            <p>The tools and information on this website do not constitute professional advice. Specifically:</p>
+            <ul>
+                <li><strong>Medical Advice:</strong> BMI calculations are not a substitute for professional medical advice, diagnosis, or treatment</li>
+                <li><strong>Financial Advice:</strong> EMI and other financial calculators are not professional financial advice</li>
+                <li><strong>Tax Advice:</strong> GST calculations are estimates and not official tax advice</li>
+            </ul>
+            <p>Always consult with qualified professionals for health, financial, legal, or tax matters.</p>
+
+            <h2>User Responsibility</h2>
+            <p>Users are solely responsible for:</p>
+            <ul>
+                <li>Verifying the accuracy of input data</li>
+                <li>Interpreting calculation results appropriately</li>
+                <li>Making decisions based on professional consultation</li>
+                <li>Understanding that results are estimates, not guarantees</li>
+            </ul>
+
+            <h2>Limitation of Liability</h2>
+            <p>CalcTools and its operators shall not be held liable for:</p>
+            <ul>
+                <li>Any errors or omissions in the content or calculations</li>
+                <li>Any losses or damages arising from the use of our tools</li>
+                <li>Decisions made based on information from our website</li>
+                <li>Any interruption or unavailability of our services</li>
+            </ul>
+
+            <h2>External Links</h2>
+            <p>Our website may contain links to external websites. We are not responsible for the content, accuracy, or practices of these external sites.</p>
+
+            <h2>Changes and Updates</h2>
+            <p>We reserve the right to modify, update, or discontinue any calculator or feature at any time without notice. Formulas and calculations may be updated to reflect current standards.</p>
+
+            <h2>Use at Your Own Risk</h2>
+            <p>By using CalcTools, you acknowledge that you understand and agree to this disclaimer. The use of our calculators and website is entirely at your own risk.</p>
+
+            <h2>Contact</h2>
+            <p>If you have questions about this disclaimer, please contact us through our Contact Us page.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CalcTools</h3>
+                <p>Your trusted source for free online calculator tools. Accurate, fast, and easy to use.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Calculators</h3>
+                <ul>
+                    <li><a href="#" onclick="showCalculator('bmi')">BMI Calculator</a></li>
+                    <li><a href="#" onclick="showCalculator('age')">Age Calculator</a></li>
+                    <li><a href="#" onclick="showCalculator('emi')">EMI Calculator</a></li>
+                    <li><a href="#" onclick="showCalculator('gst')">GST Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#" class="nav-link" data-page="privacy">Privacy Policy</a></li>
+                    <li><a href="#" class="nav-link" data-page="disclaimer">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CalcTools. All rights reserved. Made with ❤️ for everyone.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set today's date as default for age calculator
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('targetdate').value = today;
+
+        // Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.getAttribute('data-page');
+                
+                // Hide all pages
+                document.querySelectorAll('.page, .content-page, .calculator-page').forEach(p => {
+                    p.classList.remove('active');
+                });
+
+                // Show selected page
+                if (page === 'home') {
+                    document.getElementById('home').classList.add('active');
+                } else {
+                    document.getElementById(page).classList.add('active');
+                }
+
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                // Close mobile menu
+                navMenu.classList.remove('active');
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Show/Hide custom GST rate input
+        document.getElementById('gstRate').addEventListener('change', function() {
+            const customGroup = document.getElementById('customRateGroup');
+            customGroup.style.display = this.value === 'custom' ? 'block' : 'none';
+        });
+
+        function showCalculator(calcId) {
+            // Hide all pages
+            document.querySelectorAll('.page, .content-page, .calculator-page').forEach(p => {
+                p.classList.remove('active');
+            });
+
+            // Show calculator page
+            document.getElementById(calcId).classList.add('active');
+
+            // Update nav
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const resultDiv = document.getElementById('bmiResult');
+
+            if (!weight || !height || weight <= 0 || height <= 0) {
+                alert('Please enter valid weight and height values');
+                return;
+            }
+
+            const heightInMeters = height / 100;
+            const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+            let category, advice;
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                advice = 'You may need to gain weight. Consult a healthcare provider for personalized advice.';
+            } else if (bmi >= 18.5 && bmi < 25) {
+                category = 'Normal weight';
+                advice = 'You have a healthy weight. Maintain your current lifestyle!';
+            } else if (bmi >= 25 && bmi < 30) {
+                category = 'Overweight';
+                advice = 'Consider adopting a healthier diet and exercise routine.';
+            } else {
+                category = 'Obese';
+                advice = 'It is recommended to consult a healthcare provider for guidance.';
+            }
+
+            resultDiv.innerHTML = `
+                <div class="result-title">Your BMI Result</div>
+                <div class="result-value">${bmi}</div>
+                <div class="result-info">
+                    <strong>Category:</strong> ${category}<br><br>
+                    <strong>Advice:</strong> ${advice}
+                </div>
+            `;
+            resultDiv.classList.add('show');
+        }
+
+        function calculateAge() {
+            const birthdate = new Date(document.getElementById('birthdate').value);
+            const targetdate = new Date(document.getElementById('targetdate').value);
+            const resultDiv = document.getElementById('ageResult');
+
+            if (!document.getElementById('birthdate').value || !document.getElementById('targetdate').value) {
+                alert('Please select both dates');
+                return;
+            }
+
+            if (birthdate > targetdate) {
+                alert('Birth date cannot be after target date');
+                return;
+            }
+
+            let years = targetdate.getFullYear() - birthdate.getFullYear();
+            let months = targetdate.getMonth() - birthdate.getMonth();
+            let days = targetdate.getDate() - birthdate.getDate();
+
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(targetdate.getFullYear(), targetdate.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            const totalDays = Math.floor((targetdate - birthdate) / (1000 * 60 * 60 * 24));
+            const totalMonths = years * 12 + months;
+
+            resultDiv.innerHTML = `
+                <div class="result-title">Your Age</div>
+                <div class="result-value">${years} Years</div>
+                <div class="result-info">
+                    <strong>Detailed Breakdown:</strong><br>
+                    ${years} years, ${months} months, and ${days} days<br><br>
+                    <strong>Total:</strong><br>
+                    ${totalMonths} months or ${totalDays} days
+                </div>
+            `;
+            resultDiv.classList.add('show');
+        }
+
+        function calculateEMI() {
+            const principal = parseFloat(document.getElementById('loanAmount').value);
+            const annualRate = parseFloat(document.getElementById('interestRate').value);
+            const tenure = parseFloat(document.getElementById('loanTenure').value);
+            const resultDiv = document.getElementById('emiResult');
+
+            if (!principal || !annualRate || !tenure || principal <= 0 || annualRate < 0 || tenure <= 0) {
+                alert('Please enter valid loan details');
+                return;
+            }
+
+            const monthlyRate = annualRate / (12 * 100);
+            const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenure)) / 
+                        (Math.pow(1 + monthlyRate, tenure) - 1);
+            
+            const totalAmount = emi * tenure;
+            const totalInterest = totalAmount - principal;
+
+            resultDiv.innerHTML = `
+                <div class="result-title">Your Monthly EMI</div>
+                <div class="result-value">₹${emi.toFixed(2)}</div>
+                <div class="result-info">
+                    <div class="emi-breakdown">
+                        <div class="emi-item">
+                            <span>Principal Amount:</span>
+                            <strong>₹${principal.toFixed(2)}</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>Total Interest:</span>
+                            <strong>₹${totalInterest.toFixed(2)}</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>Total Amount Payable:</span>
+                            <strong>₹${totalAmount.toFixed(2)}</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>Loan Tenure:</span>
+                            <strong>${tenure} months</strong>
+                        </div>
+                    </div>
+                </div>
+            `;
+            resultDiv.classList.add('show');
+        }
+
+        function calculateGST() {
+            const type = document.getElementById('gstType').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const gstRateSelect = document.getElementById('gstRate').value;
+            const resultDiv = document.getElementById('gstResult');
+
+            let gstRate;
+            if (gstRateSelect === 'custom') {
+                gstRate = parseFloat(document.getElementById('customRate').value);
+                if (!gstRate || gstRate < 0) {
+                    alert('Please enter a valid custom GST rate');
+                    return;
+                }
+            } else {
+                gstRate = parseFloat(gstRateSelect);
+            }
+
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+
+            let gstAmount, totalAmount, baseAmount;
+
+            if (type === 'exclusive') {
+                baseAmount = amount;
+                gstAmount = (amount * gstRate) / 100;
+                totalAmount = amount + gstAmount;
+            } else {
+                totalAmount = amount;
+                baseAmount = amount / (1 + gstRate / 100);
+                gstAmount = amount - baseAmount;
+            }
+
+            const cgst = gstAmount / 2;
+            const sgst = gstAmount / 2;
+
+            resultDiv.innerHTML = `
+                <div class="result-title">GST Calculation</div>
+                <div class="result-value">₹${totalAmount.toFixed(2)}</div>
+                <div class="result-info">
+                    <div class="emi-breakdown">
+                        <div class="emi-item">
+                            <span>Base Amount:</span>
+                            <strong>₹${baseAmount.toFixed(2)}</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>GST Rate:</span>
+                            <strong>${gstRate}%</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>CGST (${(gstRate/2).toFixed(2)}%):</span>
+                            <strong>₹${cgst.toFixed(2)}</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>SGST (${(gstRate/2).toFixed(2)}%):</span>
+                            <strong>₹${sgst.toFixed(2)}</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>Total GST Amount:</span>
+                            <strong>₹${gstAmount.toFixed(2)}</strong>
+                        </div>
+                        <div class="emi-item">
+                            <span>Total Amount:</span>
+                            <strong>₹${totalAmount.toFixed(2)}</strong>
+                        </div>
+                    </div>
+                </div>
+            `;
+            resultDiv.classList.add('show');
+        }
+
+        function submitContact() {
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value;
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            alert('Thank you for your message! We will get back to you within 24-48 hours.');
+            
+            // Clear form
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactSubject').value = '';
+            document.getElementById('contactMessage').value = '';
+        }
+    </script>
+</body>
+</html>
